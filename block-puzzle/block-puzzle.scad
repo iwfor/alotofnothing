@@ -1,4 +1,4 @@
-base_height = 15;
+base_height = 8;
 base_width = 64;
 base_length = 80;
 // x plane split into 4 blocks
