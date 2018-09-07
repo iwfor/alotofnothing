@@ -1,10 +1,9 @@
+block_size = 16;
 base_height = 6;
-base_width = 64;
-base_length = 96;
 // x plane split into 4 blocks
-xstep = base_width / 4;
+base_width = 4 * block_size;
 // y plane split into 6 blocks
-ystep = base_length / 6;
+base_length = 6 * block_size;
 gap = 0.5;
 
 module base_block() {
@@ -32,10 +31,10 @@ module groove(x1,y1,x2,y2) {
 }
 
 module cutter(x1,y1,x2,y2,z,h) {
-    x1c = x1 * xstep - gap/2;
-    y1c = y1 * ystep - gap/2;
-    x2c = x2 * xstep + gap/2;
-    y2c = y2 * ystep + gap/2;
+    x1c = x1 * block_size - gap/2;
+    y1c = y1 * block_size - gap/2;
+    x2c = x2 * block_size + gap/2;
+    y2c = y2 * block_size + gap/2;
     cutx = x1 == x2 ? gap : x2c-x1c;
     cuty = y1 == y2 ? gap : y2c-y1c;
     translate([x1c,y1c,z]) linear_extrude(h) {
