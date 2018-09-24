@@ -9,9 +9,8 @@ module tube(opening, height, thickness) {
 }
 
 // Put tubes together on a support structure for the hinge.  Should be reversible so two can go together to make a complete hinge.
-module hinge(hinges = 2, opening = 1) {
+module hinge(hinges = 2, opening = 1, h = 5) {
     thickness = 1.5;
-    h = 5;
     d = opening + thickness * 2;
     translate([d,0,0]) cube([5, h*hinges*2, thickness]);
     for (i = [0:hinges-1]) {
@@ -21,4 +20,4 @@ module hinge(hinges = 2, opening = 1) {
     }
 }
 
-hinge(2, 1);
+hinge(4, 1, 2.5);
