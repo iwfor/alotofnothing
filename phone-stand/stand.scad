@@ -38,8 +38,8 @@ difference() {
         linear_extrude(10)
             square([14,ledge+1]);
     }
-    front_hole(l * 0.15, h *0.45, ledge*1.1);
-    front_hole(l * 0.88, h * 0.55, ledge*0.9);
+    front_hole(l * 0.16, h *0.45, ledge*1.1);
+    front_hole(l * 0.87, h * 0.55, ledge*0.9);
     front_hole(l * 0.04, h * 0.25, ledge/4);
     front_hole(l * 0.96, h * 0.25, ledge/4);
     front_hole(l * 0.04, h * 0.75, ledge/4);
@@ -55,12 +55,12 @@ difference() {
     translate([-1,w/2+ledge/3,0]) {
         rotate([0,90,0])
             linear_extrude(l+2)
-                circle(w/3.8, $fn=100);
+                circle(w/4, $fn=100);
     }
     translate([-1,w/2+ledge/2,h/2]) {
         rotate([0,90,0])
             linear_extrude(l+2)
-                circle(w/7.5, $fn=100);
+                circle(w/8, $fn=100);
     }
     
 }
