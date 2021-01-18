@@ -16,7 +16,7 @@ module tray() {
     difference() {
         linear_extrude(4) square ([w+6,l+6]);
         translate([3-gap/2,3-gap/2,1.5]) linear_extrude(10) square([w+gap,l+gap]);
-        translate([(w+6)/2,(l+6)/2,-1]) linear_extrude(10) circle(3);
+        translate([(w+6)/2,(l+6)/2,-1]) linear_extrude(10) circle(3, $fn=120);
     }
 }
 
@@ -52,3 +52,9 @@ module cut_grid() {
     }
 }
 
+
+module sign() {
+    mirror() translate([-3, 3 ,-0.8]) {
+        linear_extrude(1) rotate(90) text("Foraker", size=10);
+    }
+}

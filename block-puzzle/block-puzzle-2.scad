@@ -23,4 +23,7 @@ translate([-base_width-1,0,0])
         #cut_blocks();
     }
 
-translate([1,0,0]) tray(base_width, base_length);
+difference() {
+    translate([1,0,0]) tray(base_width, base_length);
+    sign();
+}

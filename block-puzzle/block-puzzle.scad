@@ -1,5 +1,6 @@
 include <common.scad>
 
+
 module cut_blocks() {
     // Maximum effort
     jigsaw(1,0,1,1);
@@ -25,4 +26,7 @@ translate([-base_width-1,0,0])
         #cut_blocks();
     }
 
-translate([1,0,0]) tray(base_width, base_length);
+difference() {
+    translate([1,0,0]) tray(base_width, base_length);
+    sign();
+}
