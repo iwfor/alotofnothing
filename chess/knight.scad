@@ -26,13 +26,12 @@ module eye() {
 }
 
 module head() {
-    difference() {
+    rotate([-20,0,0]) difference() {
         translate([0,0,0]) {
             sphere(r=rad * 0.75, $fn=faces);
             // Snout
             translate([0,-rad*0.27,0]) {
                 rotate([90,0,0]) cylinder(h=rad*1.5, r1=rad*0.7, r2=rad*0.39, $fn = 6);
-                translate([0,-rad*1.49+0.5,0]) sphere(r=rad*0.42, $fn=6);
             }
             translate([rad*0.4,rad*0.15,rad*0.5])
                 ear();
@@ -43,13 +42,16 @@ module head() {
             // Mane
             translate([0,2,rad*0.25]) resize([d*0.35,d,d], $fn=faces) sphere(3);
         }
-        translate([4,-rad*1.75,2]) nostril();
-        translate([-4,-rad*1.75,2]) nostril();
+        translate([4,-rad*1.7,2]) nostril();
+        translate([-4,-rad*1.7,2]) nostril();
     }
 }
 
 b = 0;
-translate([0,0,b]) cylinder(h=base_height,r=rad,$fn=faces);
+difference() {
+    cylinder(h=base_height,r=rad,$fn=faces);
+    signature();
+}
 b1 = b + base_height;
 translate([0,0,b1]) cylinder(h=base_height,r1=rad,r2=rad*0.75,$fn=faces);
 b2 = b1 + base_height;
