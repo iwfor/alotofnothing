@@ -16,7 +16,10 @@ module hat() {
 }
 
 b = 0;
-translate([0,0,0]) cylinder(h=base_height,r=rad,$fn=faces);
+difference() {
+    cylinder(h=base_height,r=rad,$fn=faces);
+    signature();
+}
 b1 = b + base_height;
 translate([0,0,b1]) cylinder(h=base_height,r1=rad,r2=rad*0.75,$fn=faces);
 b2 = b1 + base_height;

@@ -3,7 +3,10 @@ d = small_base;
 rad = d/2;
 
 b = 0;
-translate([0,0,b]) cylinder(h=base_height,r=rad,$fn=64);
+difference() {
+    cylinder(h=base_height,r=rad,$fn=64);
+    signature();
+}
 b0 = b + base_height;
 translate([0,0,b0]) cylinder(h=base_height,r1=rad,r2=rad*0.75,$fn=64);
 b1 = b0 + base_height+1;
