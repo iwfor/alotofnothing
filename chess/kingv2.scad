@@ -12,14 +12,12 @@ module crown() {
     difference() {
         cylinder(h=base_height*2.5, r=rad*0.9, $fn=faces);
         translate([0,0,base_height]) cylinder(h=base_height*3, r=rad*0.8, $fn = faces);
-     translate([0,0,base_height*1.75]) {
-         for (i = [0,45,90,135])
-            rotate([0,0,i]) linear_extrude(8) square([base_height*0.8,base_height*5], center=true);
-     }
-//        translate([-base_height*2.5,-base_height/2,base_height*1.75]) linear_extrude(8) square([base_height*5,base_height]);
+        translate([0,0,base_height*1.75]) {
+            for (i = [0,45,90,135])
+                rotate([0,0,i]) linear_extrude(8) square([base_height*0.8,base_height*5], center=true);
+        }
     }
     translate([0,0,7]) sphere(r=rad*0.8, $fn=faces);
-//    translate([0,0,20]) sphere(r=rad*0.2, $fn=faces);
     rotate([0,0,90]) translate([0,0,22]) {
         rotate([0,90,0]) difference() {
             cylinder(h=3,r=5.5, center=true, $fn=faces);
@@ -32,7 +30,7 @@ module crown() {
 
 module king() {
     b = 0;
-    // Pedastal
+    // Pedestal
     difference() {
         cylinder(h=base_height,r=rad,$fn=faces);
         signature();

@@ -20,7 +20,7 @@ module crown() {
 
 module king() {
     b = 0;
-    // Pedastal
+    // Pedestal
     difference() {
         cylinder(h=base_height,r=rad,$fn=faces);
         signature();

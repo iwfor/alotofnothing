@@ -14,5 +14,5 @@ king_base = 45;
 base_height = 6;
 
 module signature() {
-    translate([4.5,-2,-0.5]) mirror([1,0,0]) linear_extrude(0.75) text("IWF", size=4);
+    translate([4.5,-2,-0.4]) mirror([1,0,0]) linear_extrude(0.75) text("IWF", size=4);
 }
