@@ -8,7 +8,7 @@ module ring(ratio = 1) {
 }
 
 module ear() {
-    rotate([-25,15,0]) {
+    rotate([-28,15,0]) {
         difference() {
             translate([0,0,0]) {
                 cylinder(h=hr*0.75,r1=hr*0.25,r2=0.5,$fn=faces);
@@ -19,21 +19,21 @@ module ear() {
 }
 
 module nostril() {
-    rotate([15,0,0]) resize([2,2,1.5]) sphere(r=3, $fn=faces);
+    rotate([15,0,0]) resize([2.25,2.25,1.5]) sphere(r=3, $fn=faces);
 }
 
 module eye() {
-    rotate([15,30,-15]) resize([4,6,3]) sphere(r=3, $fn=faces);
+    rotate([15,30,-15]) resize([5,7,3.5]) sphere(r=3, $fn=faces);
 }
 
 module head() {
     rotate([-20,0,0]) difference() {
         translate([0,0,0]) {
 //            sphere(r=hr * 0.75, $fn=faces);
-            resize([hr*1.4, hr*1.8, hr*1.5]) sphere(3, $fn=faces);
+            resize([hr*1.5, hr*1.8, hr*1.5]) sphere(3, $fn=faces);
             // Snout
             translate([0,-rad*0.27,0]) {
-                rotate([90,0,0]) cylinder(h=hr*1.3, r1=hr*0.55, r2=hr*0.38, $fn = 6);
+                rotate([90,0,0]) cylinder(h=hr*1.3, r1=hr*0.69, r2=hr*0.38, $fn = 6);
             }
             // Ears
             translate([hr*0.4,hr*0.15,hr*0.5])
@@ -47,8 +47,9 @@ module head() {
             // Mane
             translate([0,5,hr*0.2]) resize([hr*0.75,hr*1.75,hr*1.75], $fn=faces) sphere(3);
         }
+        // Nostrils
         for (i = [1, -1]) {
-            translate([-1*i*3.5,-hr*1.7,2]) nostril();
+            translate([-1*i*3.7,-hr*1.65,2]) nostril();
         }
     }
 }
