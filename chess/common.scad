@@ -16,5 +16,19 @@ pawn_base = 35;
 base_height = 6;
 
 module signature() {
-    translate([4.5,-2,-0.4]) mirror([1,0,0]) linear_extrude(0.75) text("IWF", size=4);
+    translate([6,-2,-0.4]) mirror([1,0,0]) linear_extrude(1) text("IWF", size=5);
+}
+
+module chess_square() {
+    bh = base_height;
+    hh = bh / 2;
+    difference() {
+        linear_extrude(bh) square(square_width);
+        translate([0,0,hh]) {
+            translate([-1,-1,0]) linear_extrude(hh+1) square([hh+1,square_width+2]);
+            translate([-1,-1,0]) linear_extrude(hh+1) square([square_width+2,hh+1]);
+            translate([square_width-hh,-1,0]) linear_extrude(hh+1) square([hh+1,square_width+2]);
+            translate([-1,square_width-hh,0]) linear_extrude(hh+1) square([square_width+2,hh+1]);
+        }
+    }
 }
