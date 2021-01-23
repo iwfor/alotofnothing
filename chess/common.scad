@@ -9,6 +9,8 @@ big_base = base * 1.25;
 
 square_width = 60;
 king_base = 45;
+soldier_base = 40;
+pawn_base = 35;
 
 // Base height
 base_height = 6;
