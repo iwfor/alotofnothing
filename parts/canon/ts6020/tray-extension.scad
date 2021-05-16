@@ -1,6 +1,7 @@
 // Designed by Isaac W. Foraker
 //
-// Released under Creative Commons 4 attribution license
+// Released under Creative Commons Attribution 4.0 license
+// https://creativecommons.org/licenses/by/4.0/
 
 include <MCAD/2Dshapes.scad>
 
@@ -44,9 +45,10 @@ difference() {
     translate([-0.1,2,2]) rotate([0,90,0]) linear_extrude(42) donutSlice(2,5,270,360);
     
     // Carve some grooves in the bottom to help make releasing the model from the print bed easier
-    translate([20.5,5,-2.5]) rotate([-90,0,0]) cylinder(h=100, r=4);
-    translate([12,5,-2.5]) rotate([-90,0,0]) cylinder(h=100, r=4);
-    translate([29,5,-2.5]) rotate([-90,0,0]) cylinder(h=100, r=4);
+    for (x = [12,20.5,29]) {
+        translate([x,6,-2.5]) rotate([-90,0,0]) cylinder(h=107, r=4);
+    }
     
-    translate([20.5,60,8.5]) rotate([-5,0,0]) resize([20,80,8]) sphere(r=3);
+    // Add impression on top, mostly for looks
+    translate([20.5,60,8.5]) rotate([-4,0,0]) resize([30,100,8]) sphere(r=3);
 }
