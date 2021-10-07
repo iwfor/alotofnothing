@@ -1,0 +1,5 @@
+inside dia: 55mm
+spool dia: 75mm
+wrapped dia: 180mm
+wheel dia: 200mm (allows for holes to lock filament)
+
