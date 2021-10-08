@@ -13,7 +13,9 @@ wrapped_dia = 180;
 wheel_dia = wrapped_dia+20;
 wheel_r = wheel_dia/2;
 wall = 4;
-ring = 2.5;
+barrel_wall = 4;
+ring = 2;
+thread_dia = spool_dia-barrel_wall*2;
 
 module wheel() {
     difference() {
@@ -23,10 +25,11 @@ module wheel() {
         for (i = [0:3]) {
             rotate([0,0,i*90]) {
                 for (n = [0:1]) {
-                    rotate([0,0,n*10]) translate([wheel_r-5,0,-0.01]) cylinder(r1=3,r2=1.5,h=wall+0.2);
+                    rotate([0,0,n*20]) translate([wheel_r-5,0,-0.01]) cylinder(r1=3,r2=1.5,h=wall+0.2);
                 }
             }
         }
+        // Make big cutouts
         for (i = [0:4]) {
             rotate([0,0,i*360/5]) {
                 translate([0, spool_dia/2, -0.1]) cutout();
