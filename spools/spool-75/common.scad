@@ -8,7 +8,7 @@ inside_dia = 55;
 inside_r = inside_dia/2;
 spool_dia = 75;
 spool_r = spool_dia/2;
-spool_w = 60;
+spool_w = 58;
 wrapped_dia = 180;
 wheel_dia = wrapped_dia+20;
 wheel_r = wheel_dia/2;
@@ -20,12 +20,12 @@ thread_dia = spool_dia-barrel_wall*2;
 module wheel() {
     difference() {
         cylinder(r=wheel_r, h=wall);
-        translate([0,0,-1]) cylinder(r=inside_dia/2+ring,h=wall+2);
+        translate([0,0,-1]) cylinder(r=inside_r+ring+0.5,h=wall+2);
         // Cut filament lock holes
         for (i = [0:3]) {
             rotate([0,0,i*90]) {
                 for (n = [0:1]) {
-                    rotate([0,0,n*20]) translate([wheel_r-5,0,-0.01]) cylinder(r1=3,r2=1.5,h=wall+0.2);
+                    rotate([0,0,n*25]) translate([wheel_r-5,0,-0.01]) cylinder(r1=3,r2=1.5,h=wall+0.2);
                 }
             }
         }
