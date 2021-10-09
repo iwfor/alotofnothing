@@ -1,3 +1,4 @@
+Designed for: D3D Sigma refills
 inside dia: 55mm
 spool dia: 75mm
 wrapped dia: 180mm
