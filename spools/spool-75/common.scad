@@ -1,3 +1,14 @@
+/*
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ * http://creativecommons.org/licenses/by-nc-sa/4.0/
+ *
+ * Author: Isaac Foraker
+ *
+ * This work makes use of the following libraries:
+ *  Round-Anything library by IrevDev
+ *  ISO-standard Metric Threads library by Dan Kirshner
+ */
+
 include <MCAD/2Dshapes.scad>
 include <polyround.scad>
 include <threads.scad>
