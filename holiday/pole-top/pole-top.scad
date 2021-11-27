@@ -1,3 +1,7 @@
+// Released under Creative Commons Attribution 4.0 International (CC BY 4.0)
+//
+// This design makes use of the "threads" library, by Dan Kirshner.
+
 include <threads.scad>
 
 $fn=64;
@@ -11,7 +15,7 @@ base_height         = 50;   // 75mm / ~3in
 base_dia1           = 30;
 base_dia2           = 23;
 
-pole_dia            = 21;
+pole_dia            = 22;   // measured 21mm
 
 module dome() {
     difference() {
@@ -29,6 +33,7 @@ module solid1() {
         difference() {
             cylinder(h=25, r=base_dia1/2);
             translate([0,0,-1]) cylinder(h=27, r=pole_dia/2);
+            translate([-20,0,10]) rotate([0,90,0]) cylinder(h=base_dia1*2,r=1.8);
         }
     }
     difference() {
