@@ -1,0 +1,19 @@
+Post:
+height: 137.5mm
+outside dia: 17.5
+bottom opening dia: 9.81mm
+top rod height 1: 25.5mm
+top rod dia 1: 9.15mm
+top rod dia 1: w/ protrusion: 9.62mm
+top rod height 2: 23.4mm (rounded no top)
+top rod dia 2: 8.3mm
+
+Spike:
+post height 1: 14.25mm
+post dia 1: 9.15mm
+post dia 1 2/ protrusion: 10.2mm
+post height 2: 34mm (rounded at top)
+post dia 2: 9mm
+base dia: 17.7mm
+
+Spike should be roughly same width as post at start.  Up to 150mm long.
