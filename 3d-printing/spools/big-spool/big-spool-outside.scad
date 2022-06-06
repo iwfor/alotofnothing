@@ -14,10 +14,10 @@ module solid1() {
             // Draw the main barrel
             difference() {
                 cylinder(r=spool_r,h=spool_w);
-                translate([0,50,1]) rotate([90,0,0])
-                    cylinder(r=1, h=100);
-                translate([-50,0,1.6]) rotate([0,90,0])
-                    cylinder(r=1.6, h=100);
+                translate([0,50,1.25]) rotate([90,0,0])
+                    cylinder(r=1.25, h=100);
+                translate([-50,0,1.75]) rotate([0,90,0])
+                    cylinder(r=1.75, h=100);
             }
             translate([0,0,-0.01]) cylinder(r=spool_r-barrel_wall,h=spool_w-15.9);
             // cut threads

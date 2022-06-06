@@ -20,7 +20,7 @@ inside_r = inside_dia/2;
 spool_dia = 65;
 spool_r = spool_dia/2;
 //spool_w = 58;
-spool_w = 84;
+spool_w = 88;
 wrapped_dia = 180;
 wheel_dia = wrapped_dia+20;
 wheel_r = wheel_dia/2;
@@ -50,8 +50,8 @@ module wheel() {
 
 module cutout() {
     size = 45;
-    top_r = 48;
-    bottom_r = 21;
+    top_r = 46;
+    bottom_r = 19;
     r = [80,20,30,50];
     p = [ [-bottom_r,0,20],[0,3,20],[bottom_r,0,20],
         [top_r,size,10],[20,size+9,10],[0,size+12,10],[-20,size+9,10],[-top_r,size,10] ];
