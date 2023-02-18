@@ -7,9 +7,9 @@ include <common.scad>
 
 ring(track_rad, track_width+track_wall_thickness*2, track_wall_thickness);
 ring(track_rad, track_wall_thickness, track_wall_thickness+wheel_rad/2);
-ring(track_rad+track_width+track_wall_thickness, track_wall_thickness, track_wall_thickness+wheel_rad+1);
+ring(track_rad+track_width+track_wall_thickness, track_wall_thickness, track_wall_thickness+wheel_rad-2);
 
-translate([0,0,track_wall_thickness+track_wall_height])
+translate([0,0,track_wall_thickness+track_wall_height-2.75])
     rotate_extrude(convexity=10)
         translate([track_rad+track_width+track_wall_thickness*2,0,0])
-            circle(r=1);
+            circle(r=0.75);
