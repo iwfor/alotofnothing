@@ -22,19 +22,19 @@ module slat() {
 module base() {
     difference() {
         cube([l, w, t]);
-        for (i = [1:8]) {
-            translate([t+5, 6.85*i+t, 0]) slat();
+        for (i = [1:7]) {
+            translate([t+5, 7.75*i+t, 0]) slat();
         }
     }
-    translate([t+2.5,t+2.5,t]) post();
-    translate([l-t-2.5,t+2.5,t]) post();
-    translate([t+2.5,w-t-2.5,t]) post();
-    translate([l-t-2.5,w-t-2.5,t]) post();
+    translate([t+2.75,t+2.75,t]) post();
+    translate([l-t-2.75,t+2.75,t]) post();
+    translate([t+2.75,w-t-2.75,t]) post();
+    translate([l-t-2.75,w-t-2.75,t]) post();
     translate([0,0,t]) {
         difference() {
             cube([l,t,post_height+1]);
-            translate([61,-0.01,t+post_height-2.5])
-                cube([20,t+0.02,3]);
+            translate([t+61,-0.01,t+post_height-2.5-1])
+#                cube([20,t+0.02,3]);
         }
         cube([t,w,post_height+1]);
         translate([0,w-t,0]) cube([l,t,post_height+1]);
@@ -44,8 +44,8 @@ module base() {
 
 module post() {
     cylinder(h=post_height, r=2.5);
-    cylinder(h=post_height+3, r=1.25);
-    translate([0,0,post_height+3]) sphere(r=1.25);
+    cylinder(h=post_height+3, r=1.33);
+    translate([0,0,post_height+3]) sphere(r=1.33);
 }
 
 base();

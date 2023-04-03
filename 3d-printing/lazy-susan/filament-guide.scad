@@ -8,12 +8,8 @@ height = 130;
 
 module post() {
     // Make the post
-    intersection() {
-        translate([0,-3,0])
-            cube([height, 6, 6]);
-        translate([0,0,3]) rotate([0,90,0])
-            cylinder(h=height,r=3.5);
-    }
+    translate([0,-3,0])
+        cube([height, 6, 6]);
 }
 
 // Make the donut guide
@@ -33,8 +29,10 @@ translate([s+15,s+15,0]) {
     translate([-s,-2.5,0]) cube([s*2,5,2.5]);
     difference() {
         cylinder(r=6,h=15);
-        rotate([0,-90,0]) translate([0,0,-3])post();
+        translate([0,0,2.5]) rotate([0,-90,0]) translate([0,0,-3]) post();
         translate([-10,-0.25])
             cube([20,0.5,25]);
+        translate([-0.25,-10])
+            cube([0.5,20,25]);
     }
 }
