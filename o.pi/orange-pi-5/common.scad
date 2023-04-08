@@ -8,6 +8,11 @@ l = inside_length+thickness*2;
 w = inside_width+thickness*2;
 t = thickness;
 
+fan_thickness = 8;
+fan_side = 30; // square
+fan_wire_offset = 5;
+fan_wire_width = 3;
+
 module slat() {
     translate([0,0,-0.01]) {
         translate([0,-2, 0]) cube([l-t*2-10, 4, t+0.02]);
