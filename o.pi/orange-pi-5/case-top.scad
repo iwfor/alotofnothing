@@ -115,7 +115,7 @@ module top2() {
     }
     // Build the fan screen
     color("green") translate([fan_middle_x, fan_middle_y, -0.01]) {
-        cylinder(h=t-0.05, r=7.5);
+        cylinder(h=1.5, r=7.5);
         for (x = [0:2]) rotate([0,0,120*x+30]) {
             translate([0,-1,0]) cube([fan_side/2, t, 1.5]);
         }
