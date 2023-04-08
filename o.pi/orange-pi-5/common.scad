@@ -1,3 +1,12 @@
+/*
+* This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+* http://creativecommons.org/licenses/by-nc-sa/4.0/
+*
+* Author: Isaac Foraker
+*/
+
+// Shared settings and functions
+
 inside_length = 100.4;
 inside_width = 62.4;
 post_height = 5;
@@ -12,6 +21,7 @@ fan_thickness = 8;
 fan_side = 30; // square
 fan_wire_offset = 5;
 fan_wire_width = 3;
+fan_opening = 28;
 
 module slat() {
     translate([0,0,-0.01]) {

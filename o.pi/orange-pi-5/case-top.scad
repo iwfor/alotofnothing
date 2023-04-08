@@ -1,10 +1,19 @@
+/*
+* This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+* http://creativecommons.org/licenses/by-nc-sa/4.0/
+*
+* Author: Isaac Foraker
+*/
+
 include <common.scad>
 
 $fn=32;
 
 wall_height = 20;
+fan_middle_x = l - t - fan_side/2;
+fan_middle_y = w - t*6 - fan_side/2;
 
-module top() {
+module top1() {
     difference() {
         cube([l, w, t]);
         for (i = [1:7]) {
@@ -60,10 +69,12 @@ module top() {
         }
     }
     
-    translate([t+post_offset,t+post_offset,t]) post();
-    translate([l-t-post_offset,t+post_offset,t]) post();
-    translate([t+post_offset,w-t-post_offset,t]) post();
-    translate([l-t-post_offset,w-t-post_offset,t]) post();
+    color("red") {
+        translate([t+post_offset,t+post_offset,t]) post();
+        translate([l-t-post_offset,t+post_offset,t]) post();
+        translate([t+post_offset,w-t-post_offset,t]) post();
+        translate([l-t-post_offset,w-t-post_offset,t]) post();
+    }
 }
 
 module post() {
@@ -74,4 +85,54 @@ module post() {
     }
 }
 
-top();
+module top2() {
+    // Take the basic top case and build a spot for a fan
+    fw = 5;
+    difference() {
+        union() {
+            top1();
+            // Create a solid square for the fan before cutting out
+            // the opening for the fan, then cut holes in it for
+            // optional screws
+            translate([fan_middle_x-fan_side/2-t, fan_middle_y-fan_side/2-t, 0])
+                cube([fan_side+t, fan_side+t*2+2, t]);
+            color("yellow") translate([fan_middle_x-fan_side/2-t, fan_middle_y-fan_side/2-t, t]) {
+                cube([fan_side+t, t, fw]);
+                difference(){ 
+                    cube([t, fan_side+t*2, fw]);
+                    // Cut channel for wires
+                    translate([-0.01, fan_side+t-fan_wire_offset-fan_wire_width, 0])
+                        cube([t+0.02, fan_wire_width, fan_thickness]);
+                }
+                translate([0,fan_side+t,0])
+                    cube([fan_side+t, t, fw]);
+            }
+        }
+        // Cut out the big opening for fan airflow
+        translate([fan_middle_x, fan_middle_y, -0.01]) {
+            cylinder(h=t+0.02, r=fan_opening/2+0.5);
+        }
+    }
+    // Build the fan screen
+    color("green") translate([fan_middle_x, fan_middle_y, -0.01]) {
+        cylinder(h=t-0.05, r=7.5);
+        for (x = [0:2]) rotate([0,0,120*x+30]) {
+            translate([0,-1,0]) cube([fan_side/2, t, 1.5]);
+        }
+    }
+}
+
+module top3() {
+    // Cut screw holes into the top
+    difference() {
+        top2();
+        translate([fan_middle_x, fan_middle_y, -0.01]) {
+            for (i = [0:3]) rotate([0,0,90*i]) {
+                translate([fan_side/2-2.8, fan_side/2-2.8, 0])
+                    cylinder(h=t+0.02, r=1);
+            }
+        }
+    }
+}
+
+top3();
