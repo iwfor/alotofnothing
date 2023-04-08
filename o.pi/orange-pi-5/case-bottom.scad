@@ -18,7 +18,8 @@ module base() {
     translate([0,0,t]) {
         difference() {
             cube([l,t,post_height+1.5]);
-            translate([t+62,-0.01,t+post_height-2.5-1.5])
+            // Ribbon port
+            translate([t+62,-0.01,t+post_height-3])
                 cube([21,t+0.02,4]);
         }
         cube([t,w,post_height+1.5]);
