@@ -24,12 +24,19 @@ module base() {
         difference() {
             cube([l,t,post_height+1.5]);
             // Ribbon port
-            translate([t+62,-0.01,t+post_height-3])
+            translate([t+62,-0.01,t+post_height-3.5])
                 cube([21,t+0.02,4]);
         }
-        cube([t,w,post_height+1.5]);
+        difference() {
+            cube([t,w,post_height+1.5]);
+            translate([-0.01, w/2-4, post_height-0.5]) cube([t+0.02, 8, 5]);
+        }
         translate([0,w-t,0]) cube([l,t,post_height+1.5]);
-        translate([l-t,0,0]) cube([t,w,post_height+1.5]);
+        difference() {
+            // Cut notches to make it easier to remove the board with a tool
+            translate([l-t,0,0]) cube([t,w,post_height+1.5]);
+            translate([l-t-0.01, w/2-4, post_height-0.5]) cube([t+0.02, 8, 5]);
+        }
     }
 }
 

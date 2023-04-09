@@ -10,8 +10,11 @@ include <common.scad>
 $fn=32;
 
 wall_height = 20;
-fan_middle_x = l - t - fan_side/2;
-fan_middle_y = w - t*6 - fan_side/2;
+
+//fan_middle_x = l - t - fan_side/2;
+//fan_middle_y = w - t*6 - fan_side/2;
+fan_middle_x = l/2;
+fan_middle_y = w/2;
 
 module top1() {
     difference() {
@@ -25,7 +28,7 @@ module top1() {
         difference() {
             cube([l,t,wall_height]);
             // Ribbon connector
-            translate([t+17.5,-0.01,wall_height-2])
+            translate([t+17.5,-0.01,wall_height-2.5])
                 cube([21,t+0.02,5]);
             // USB-C
             translate([t+40.5,-0.01,wall_height-4])
@@ -45,9 +48,9 @@ module top1() {
             cube([t,w,wall_height]);
             // Vertical USB-A
             translate([-0.01,t+7.75,wall_height-15])
-                cube([t+0.02,6,16]);
+                cube([t+0.02,6.5,16]);
             // Ethernet
-            translate([-0.01,t+19,wall_height-14])
+            translate([-0.01,t+19.2,wall_height-14])
                 cube([t+0.02,16.5,15]);
             // Stacked USB-A
             translate([-0.01,t+40,wall_height-16.5])
@@ -70,32 +73,36 @@ module top1() {
     }
     
     color("red") {
+        // bottom left
         translate([t+post_offset,t+post_offset,t]) post();
+        // top left
         translate([l-t-post_offset,t+post_offset,t]) post();
+        // bottom right
         translate([t+post_offset,w-t-post_offset,t]) post();
+        // top right
         translate([l-t-post_offset,w-t-post_offset,t]) post();
     }
 }
 
 module post() {
     difference() {
-        cylinder(h=wall_height-0.4, r=2.5);
+        cylinder(h=wall_height-0.4, r=2.65);
         translate([0,0,wall_height-6])
-            cylinder(h=6.01, r=1.33);
+            cylinder(h=6.01, r=1.45);
     }
 }
 
 module top2() {
     // Take the basic top case and build a spot for a fan
-    fw = 5;
+    fw = 4.5;
     difference() {
         union() {
             top1();
             // Create a solid square for the fan before cutting out
             // the opening for the fan, then cut holes in it for
             // optional screws
-            translate([fan_middle_x-fan_side/2-t, fan_middle_y-fan_side/2-t, 0])
-                cube([fan_side+t, fan_side+t*2+2, t]);
+            translate([fan_middle_x-fan_side/2-t, fan_middle_y-fan_side/2-t-1, 0])
+                cube([fan_side+t*2, fan_side+t*2+3, t]);
             color("yellow") translate([fan_middle_x-fan_side/2-t, fan_middle_y-fan_side/2-t, t]) {
                 cube([fan_side+t, t, fw]);
                 difference(){ 
@@ -104,6 +111,7 @@ module top2() {
                     translate([-0.01, fan_side+t-fan_wire_offset-fan_wire_width, 0])
                         cube([t+0.02, fan_wire_width, fan_thickness]);
                 }
+                translate([fan_side+t, 0, 0]) cube([t, fan_side+t*2, fw]);
                 translate([0,fan_side+t,0])
                     cube([fan_side+t, t, fw]);
             }
@@ -129,7 +137,7 @@ module top3() {
         translate([fan_middle_x, fan_middle_y, -0.01]) {
             for (i = [0:3]) rotate([0,0,90*i]) {
                 translate([fan_side/2-2.8, fan_side/2-2.8, 0])
-                    cylinder(h=t+0.02, r=1);
+                    cylinder(h=t+0.02, r=1.5); // m3 x 10 probably will work
             }
         }
     }

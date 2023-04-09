@@ -8,7 +8,7 @@
 // Shared settings and functions
 
 inside_length = 100.4;
-inside_width = 62.4;
+inside_width = 62.3;
 post_height = 5;
 thickness = 2;
 post_offset = 2.95;
