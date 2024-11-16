@@ -7,7 +7,7 @@
 
 include <common.scad>
 
-h = track_wall_thickness+2;
+h = track_wall_thickness+5;
 
 cylinder(r1=14,r2=16,h=2);
 translate([0,0,2]) cylinder(r=16, h=8);
