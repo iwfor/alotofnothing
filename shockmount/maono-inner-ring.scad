@@ -3,7 +3,7 @@
 // The original ring is lined with rubber on the inside, but this is part of what makes it too thin and prone to snapping.
 
 $fn = 64;
-d = 55;  // Diameter of microphone
+d = 57;  // Diameter of microphone
 r = d/2;
 h = 10;
 t = 3;
@@ -28,10 +28,10 @@ module part2() {
                         cube([c, c, h+3]);
                         // Cut the screw hole
                         translate([c-6,-2,c-7]) rotate([-90,0,0]) {
-                            cylinder(r=1.5, h=25);
+                            cylinder(r=1.6, h=25);
                             rotate([0,0,30])
-                                cylinder(r=2.8, h=5, $fn=6);
-                            translate([0,0,c+1.5]) cylinder(r=3, h=6);
+                                cylinder(r1=3.1, r2=2.9, h=5.5, $fn=6);
+                            translate([0,0,c+0.5]) cylinder(r=3.1, h=6);
                         }
                     }
                     // Cut the bottom flat
